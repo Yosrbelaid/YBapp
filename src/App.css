@@ -1,0 +1,122 @@
+body {
+  background-color: #141414 !important; /* Dark Netflix-inspired background */
+  color: #ffffff !important;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Ensure it covers the full height */
+}
+
+/* Search Section with Background Image and Semi-Transparent Overlay */
+.search-section {
+  background-image: url('https://leroux.ca/wtl-content/uploads/2024/01/2023-Watchlist-1200x764.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Ensure the image covers the whole area */
+  background-position: center;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ffffff;
+  position: relative; /* To allow overlay */
+}
+
+/* Semi-transparent black overlay for see-through effect */
+.search-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Black overlay with 60% opacity */
+  border-radius: 10px;
+  z-index: 1; /* Place the overlay behind content */
+}
+
+.search-section > * {
+  position: relative; /* Ensures text and inputs appear above the overlay */
+  z-index: 2;
+}
+
+/* Buttons - Force Override Default Bootstrap Styles */
+.btn-primary {
+  background-color: #e50914 !important;
+  border-color: #e50914 !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #f40612 !important;
+}
+
+.btn-secondary {
+  background-color: #333333 !important;
+  color: #fff !important;
+}
+
+.btn-secondary:hover {
+  background-color: #555555 !important;
+}
+
+.btn-success {
+  background-color: #e50914 !important;
+  border: none !important;
+}
+
+.btn-success:hover {
+  background-color: #f40612 !important;
+}
+
+/* Movie Cards - Force Dark Background and Red Title Color */
+.card {
+  background-color: #1e1e1e !important; /* Force dark background */
+  border: none !important;
+  color: #fff !important; /* Force white text */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 10px;
+  width: 100%;
+  overflow: hidden; /* Ensures content doesn't spill out */
+}
+
+.card img {
+  height: 350px; /* Increase the height for slightly bigger images */
+  width: 100%; /* Ensure images take the full width of the card */
+  object-fit: cover; /* Maintain aspect ratio and fill the space */
+  border-radius: 10px 10px 0 0; /* Rounded top corners */
+}
+
+
+
+.card-title {
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+  color: #e50914 !important; /* Force red movie title */
+  text-align: center;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Grid Layout for Movie Cards - Force Four Cards Side-by-Side */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 992px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr; /* One card per row on small screens */
+  }
+}
